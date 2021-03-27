@@ -1,25 +1,54 @@
-function handleFiles(event) {
-    var files = event.target.files;
-    $("#src").attr("src", URL.createObjectURL(files[0]));
-    document.getElementById("audio").load();
+let Uploadbtn = document.getElementById("upload");
 
+let playList;
+
+Uploadbtn.addEventListener("change", makePlayList, false);
+
+var index = 1;
+
+function clearName(namefile) {
+    var clearly = namefile.split(".");
+    console.log(clearly);
+    return clearly[0];
 }
 
-// ฟังก์ชั่น Demo
-// function handleFiles(event) {
-//     var files = event.target.files;
-//     var i = 0;
-//     while(i < files.length){
-//         console.log(i);
-//         $("#src").attr("src", URL.createObjectURL(files[i]));
-//         document.getElementById("audio").load();
-//         var aud = document.getElementById("audio");
-//         aud.onended = function(){
-//             i++;
-//         };
-//     }
+function makePlayList() {
+    const file = this.files;
+    console.log(file);
 
-// }
+    // แสดงชื่อเพลงปัจจุบัน
+    document.getElementById("currentName").innerHTML = clearName(file[0].name);
 
-document.getElementById("song").addEventListener("change", handleFiles, false);
+    // แสดงรายการเพลง
+    document.getElementById("queueSong").innerHTML = "";
+    for (var i = 0; i < file.length; i++) {
+        if (i == 0) document.getElementById("queueSong").innerHTML += i + 1 + " : " + clearName(file[i].name) + " (Now playing)" + "<br>";
+        else document.getElementById("queueSong").innerHTML += i + 1 + " : " + clearName(file[i].name) + "<br>";
+    }
+
+    $("#src").attr("src", URL.createObjectURL(file[0]));
+    document.getElementById("audio").load();
+    playList = this.files;
+}
+
+function nextSong() {
+    // หยุดการทำงาน
+    if (index === playList.length) {
+        return;
+    }
+
+    // แสดงชื่อเพลงปัจจุบัน
+    document.getElementById("currentName").innerHTML = clearName(playList[index].name);
+    $("#src").attr("src", URL.createObjectURL(playList[index]));
+    document.getElementById("audio").load();
+
+    // แสดงรายการเพลง
+    document.getElementById("queueSong").innerHTML = "";
+    for (var i = 0; i < playList.length; i++) {
+        if (i == index) document.getElementById("queueSong").innerHTML += i + 1 + " : " + clearName(playList[i].name) + " (Now playing)" + "<br>";
+        else document.getElementById("queueSong").innerHTML += i + 1 + " : " + clearName(playList[i].name) + "<br>";
+    }
+
+    index++;
+}
 
