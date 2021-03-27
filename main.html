@@ -13,6 +13,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <title>Main</title>
 </head>
@@ -45,13 +47,22 @@
     <h1>Smart playing music box.</h1>
     <h3>Put your song here</h3>
     <!-- <label for="myfile">Select files:</label> -->
-    <input type="file" id="song" name="song" accept="audio/*" multiple><br><br>
+
+
+    <input type="file" id="upload" accept="audio/*" multiple><br><br>
     <!-- <input type="submit"> -->
-    <audio id="audio" controls>
+    <audio id="audio" controls autoplay onended="nextSong()">
         <source src="" id="src" />
     </audio>
 
+    <p id="currentName">Song</p>
+
+    <div style="border: 2px solid black; overflow: auto; width: 450px; height: auto;">
+        <p style="text-align: center;">Playlist</p>
+        <p id="queueSong"">No song in queue.</p>
+    </div>
+
 </body>
-<script src="/js/audio.js"></script>
+<script src="/js/play.js"></script>
 
 </html>
