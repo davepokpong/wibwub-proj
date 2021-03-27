@@ -6,17 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/navbar.css">
-    <link rel="stylesheet" href="/css/main.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+
     <!-- 2 ตัวนี้จำเป็นต้องใช้ -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
 
     <title>Main</title>
 </head>
@@ -45,26 +44,30 @@
             </span>
         </div>
     </nav>
-    <h1>WipWup Project</h1>
-    <h1>Smart playing music box.</h1>
-    <h3>Put your song here</h3>
-    <!-- <label for="myfile">Select files:</label> -->
+
+    <div style="margin-left: 30px;">
+        <h1>WipWup Project</h1>
+        <h1>Smart playing music box.</h1>
+        <h3>Put your song here</h3>
+        <!-- <label for="myfile">Select files:</label> -->
 
 
-    <input type="file" id="upload" accept="audio/*" multiple><br><br>
-    <!-- <input type="submit"> -->
-    <audio id="audio" controls autoplay onended="nextSong()">
-        <source src="" id="src" />
-    </audio>
+        <input type="file" id="upload" accept="audio/*" multiple><br><br>
+        <!-- <input type="submit"> -->
+        <audio id="audio" controls autoplay onended="nextSong()">
+            <source src="" id="src" />
+        </audio>
 
-    <p id="currentName">Song</p>
+        <p id="currentName">Song</p>
 
-    <div style="border: 2px solid black; overflow: auto; width: 450px; height: auto;">
-        <p style="text-align: center;">Playlist</p>
-        <p id="queueSong"">No song in queue.</p>
+        <div style="border: 2px solid black; overflow: auto; width: 450px; height: auto;">
+            <p style="text-align: center;">Playlist</p>
+            <p id="queueSong"">No song in queue.</p>
+        </div>
     </div>
 
 </body>
-<script src="/js/play.js"></script>
+<script src=" js/play.js">
+</script>
 
 </html>
